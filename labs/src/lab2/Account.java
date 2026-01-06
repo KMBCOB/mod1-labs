@@ -11,8 +11,16 @@ public class Account {
         this.balance = startingBalance;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getOwner() {
         return owner;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 
     void deposit(double amount) {
