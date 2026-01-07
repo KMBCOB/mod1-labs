@@ -1,23 +1,29 @@
 package oo2;
 
-public class Ball {
+public class Shape {
     static int worldW;
     static int worldH;
 
     public int x, y, w, h;
     private int dirX, dirY;
+    private ShapeType shapeType;
 
-    public Ball(int x, int y, int w, int h, int dirX, int dirY) {
+    public Shape(int x, int y, int w, int h, int dirX, int dirY, ShapeType shapeType) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
         this.dirX = dirX;
         this.dirY = dirY;
+        this.shapeType = shapeType;
     }
 
-    public Ball(int x, int y, int w, int h) {
-        this(x, y, w, h, 1, 1);
+    public Shape(int x, int y, int w, int h, ShapeType shapeType) {
+        this(x, y, w, h, 1, 1, shapeType);
+    }
+
+    public ShapeType getShapeType() {
+        return shapeType;
     }
 
     public static void setWorld(int w, int h) {
