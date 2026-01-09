@@ -48,6 +48,12 @@ public class Plane extends Vehicle{
                 "Number of engines: " + this.engines + "\n" +
                 "Colour: " + this.colour + "\n" +
                 "Does this plane have a propeller? : " + (this.hasPropeller ? "Yes" : "No") + "\n" +
-                "Is the plane fuelled? : " + (this.hasFuel ? "Yes" : "No") + "\n";
+                "Is the plane fuelled? : " + (this.hasFuel ? "Yes" : "No") + "\n" +
+                "Cost : " + this.bill + "\n";
+    }
+
+    @Override
+    void calcBill() {
+        this.bill = 1000000.00;
     }
 }

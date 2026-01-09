@@ -1,6 +1,6 @@
 package oop;
 
-public class Vehicle {
+public abstract class Vehicle {
     private static int autonumber;
 
     static {
@@ -13,6 +13,7 @@ public class Vehicle {
     protected String colour;
     protected boolean hasFuel;
     protected TravelType travelType;
+    protected double bill;
 
     public Vehicle(int wheels, int engines, String colour, boolean hasFuel, TravelType travelType) {
         this.id = autonumber++;
@@ -97,6 +98,8 @@ public class Vehicle {
                 ", travelType=" + travelType +
                 '}';
     }
+
+    abstract void calcBill();
 }
 
 enum TravelType {

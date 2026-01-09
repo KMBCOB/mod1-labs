@@ -14,11 +14,11 @@ public class Garage {
         vehicles.add(vehicle);
     }
 
-    public Vehicle findVehicleById(int id) {
+    public Vehicle findVehicleById(int id) throws VehicleNotFoundException {
         for(Vehicle v : vehicles) {
             if (v.getId() == id) { return v; }
         }
-        return null;
+        throw new VehicleNotFoundException("Vehicle cannot be found.");
     }
 
     public ArrayList<Vehicle> findVehicleByType(Class<? extends Vehicle> vehicleType) {
@@ -31,4 +31,34 @@ public class Garage {
         return results;
     }
 
+    public void calculateTotalBill() {
+        for(Vehicle v : vehicles) {
+            v.calcBill();
+        }
+    }
+
+    public void calculateBillById(int id) {
+        for (Vehicle v : vehicles) {
+            if (v.getId() == id) {
+                v.calcBill();
+                break;
+            }
+        }
+    }
+
+    public Vehicle removeVehicleById(int id) throws VehicleNotFoundException {
+        for (Vehicle v : vehicles) {
+            if (v.getId() == id) {
+                vehicles.remove(v);
+                return v;
+            }
+        }
+        throw new VehicleNotFoundException(String.format("Vehicle with id %d not found", id));
+    }
+}
+
+class VehicleNotFoundException extends Exception {
+    public VehicleNotFoundException(String message) {
+        super(message);
+    }
 }

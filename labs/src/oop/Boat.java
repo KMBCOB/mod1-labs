@@ -38,9 +38,15 @@ public class Boat extends Vehicle{
                 "ID: " + this.id + "\n" +
                 "Number of engines: " + this.engines + "\n" +
                 "Colour: " + this.colour + "\n" +
-                "Does this boat have a sail? : " + (hasSail ? "Yes" : "No\n") +
+                "Does this boat have a sail? : " + (hasSail ? "Yes\n" : "No\n") +
                 (hasSail ?
                         "" :
-                        "Is the boat fuelled? :" + (hasFuel ? "Yes" : "No"));
+                        "Is the boat fuelled? :" + (hasFuel ? "Yes\n" : "No\n")) +
+                "Cost : " + this.bill + "\n";
+    }
+
+    @Override
+    void calcBill() {
+        this.bill = this.hasSail ? 4000.00 : 5500.00;
     }
 }

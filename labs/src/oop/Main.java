@@ -11,11 +11,16 @@ public class Main {
         garage.addVehicle(new Boat(1, "Blue", false));
         garage.addVehicle(new Plane(3, 1, "White", 4, true));
 
-        Vehicle vehicle = garage.findVehicleById((int) (Math.random() * garage.vehicles.size()));
-        System.out.println(vehicle.toString());
-        vehicle.driveVehicle();
-        vehicle.addFuel();
-        vehicle.driveVehicle();
+        Vehicle vehicle;
+        try {
+            vehicle = garage.findVehicleById((int) (Math.random() * garage.vehicles.size()));
+            System.out.println(vehicle.toString());
+            vehicle.driveVehicle();
+            vehicle.addFuel();
+            vehicle.driveVehicle();
+        } catch(VehicleNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
         Class<?>[] vehicleTypes = {Car.class, Boat.class, Plane.class};
         ArrayList<Vehicle> vlist = garage.findVehicleByType((Class<? extends Vehicle>) vehicleTypes[(int) (Math.random() * 3)]);

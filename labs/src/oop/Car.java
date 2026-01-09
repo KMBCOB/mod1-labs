@@ -53,7 +53,17 @@ public class Car extends Vehicle{
                 "Number of engines: " + this.engines + "\n" +
                 "Colour: " + this.colour + "\n" +
                 "Fuel Type: " + this.fuelType.toString() + "\n" +
-                "Is the car fuelled? : " + (this.hasFuel ? "Yes" : "No") + "\n";
+                "Is the car fuelled? : " + (this.hasFuel ? "Yes" : "No") + "\n" +
+                "Cost : " + this.bill + "\n";
+    }
+
+    @Override
+    void calcBill() {
+        switch (this.getFuelType()) {
+            case ELECTRIC -> this.bill = 2000.00;
+            case PETROL -> this.bill = 3000.00;
+            case DIESEL -> this.bill = 3500.00;
+        }
     }
 }
 
