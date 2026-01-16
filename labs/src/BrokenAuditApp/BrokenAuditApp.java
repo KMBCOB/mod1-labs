@@ -3,7 +3,7 @@ package BrokenAuditApp;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class BrokenAuditApp {
 
@@ -34,7 +34,7 @@ public class BrokenAuditApp {
             userStatus = "UNKNOWN";
         }
         return String.format("Date:%s User:%s Type:%s Result:%s\n",
-                LocalDateTime.now(), userId, userStatus, outcome);
+                Instant.now().toString(), userId, userStatus, outcome);
     }
 
     public static void main(String[] args) throws IOException {
